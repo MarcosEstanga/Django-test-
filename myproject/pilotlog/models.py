@@ -1,25 +1,17 @@
 from django.db import models
 
-# models.py
+class SettingConfig(models.Model):
+    user_id = models.IntegerField()
+    table = models.CharField(max_length=100)
+    guid = models.UUIDField()
+    meta = models.JSONField()
+    platform = models.CharField(max_length=100)
+    modified = models.DateTimeField(auto_now=True)
 
-class SettingConfig:
-    def __init__(self, user_id, table, guid, meta, platform, _modified):
-        self.user_id = user_id
-        self.table = table
-        self.guid = guid
-        self.meta = meta
-        self.platform = platform
-        self._modified = _modified
+    objects = models.Manager()  # Default manager
 
-    @classmethod
-    def from_dict(cls, data_dict):
-        return cls(
-            user_id=data_dict.get('user_id'),
-            table=data_dict.get('table'),
-            guid=data_dict.get('guid'),
-            meta=data_dict.get('meta'),
-            platform=data_dict.get('platform'),
-            _modified=data_dict.get('_modified')
-        )
+    def __str__(self):
+        return f"{self.user_id} - {self.table}"
 
-# Now you have a list of SettingConfig objects stored in 'setting_configs'
+    class Meta:
+        ordering = ['user_id']  # Optional: Ordering of records when queried
