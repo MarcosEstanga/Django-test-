@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_django_project"
+version = "0.1.0"
+description = "My Django Project Description"
+authors = [{name="Your Name", email="your.email@example.com"}]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/yourusername/my_django_project"
+classifiers = ["Development Status ::  3 - Alpha", "Intended Audience :: Developers", "License :: OSI Approved :: MIT License", "Programming Language :: Python ::  3", "Programming Language :: Python ::  3.7", "Programming Language :: Python ::  3.8", "Framework :: Django"]
+
+[project.urls]
+Documentation = "https://docs.djangoproject.com/"
+Homepage = "https://www.djangoproject.com/"
+Repository = "https://github.com/django/django/"
+
+[project.scripts]
+start = "django-admin startproject my_django_project"
+
+[project.dependencies]
+python = "^3.7"
+Django = ">=3.2,<3.3"
+djangorestframework = ">=3.12,<3.13"
+drf-dynamic-fields = "*"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "flake8",
+    "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "coverage[toml]"
+]
+
+[project.dev-dependencies]
+black = "*"
+isort = "*"
+flake8 = "*"
