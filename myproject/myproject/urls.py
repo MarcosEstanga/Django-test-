@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import format_and_export_data
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('format-and-export/', format_and_export_data, name='format-and-export'),
+    
 ]
